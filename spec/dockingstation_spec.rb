@@ -1,14 +1,13 @@
-<<<<<<< HEAD
-require "./lib/dockingstation.rb"
+require "dockingstation"
+
+# describe DockingStation do
+#   it "DockingStation instances to respond_to the method release_bike" do
+#     docking_station = DockingStation.new
+#     expect(docking_station).to respond_to(:release_bike)
+#   end
+# end
+
+# one-liner syntax
 describe DockingStation do
+  it { is_expected.to respond_to :release_bike }
 end
-=======
-require 'dockingstation.rb'
-describe DockingStation do
-  it 'expects DockingStation instances to respond_to the method release_bike' do
-  respond_to = DockingStation.new
-  respond_to.release_bike
-end
-  
-end
->>>>>>> d9d5a6a84b974abba542c443bd7d014ecf68afa8
