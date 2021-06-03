@@ -32,4 +32,11 @@ describe DockingStation do
     docking_station = DockingStation.new(30)
     expect(docking_station.capacity).to eq(30)
   end
+
+  it "doesn't release broken bikes" do
+    bike = Bike.new
+    bike.report("broken")
+    subject.dock(bike)
+    expect(subject.release_bike).to eq("cannot release broken bike")
+  end
 end

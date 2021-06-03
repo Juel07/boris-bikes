@@ -7,7 +7,11 @@ class DockingStation
   end
 
   def release_bike
-    empty? ? (raise "Error") : "false"
+    if empty?
+      raise "Error"
+    else
+      return "cannot release broken bike" if !@docker[0].working?
+    end
   end
 
   def dock(bike)

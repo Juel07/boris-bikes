@@ -1,7 +1,16 @@
 require "./lib/dockingstation"
 
 class Bike
+  def initialize
+    @broken = "unknown"
+  end
+
   def working?
+    return false if @broken == "broken"
+  end
+
+  def report(status)
+    @broken = status
   end
 end
 
