@@ -1,5 +1,6 @@
 require "dockingstation"
 require "bike"
+DEFAULT_CAPACITY = 20
 
 # describe DockingStation do
 #   it "DockingStation instances to respond_to the method release_bike" do
@@ -23,7 +24,12 @@ describe DockingStation do
   end
 
   it "raises an error when there are more than 1 bikes at dock" do
-    20.times { subject.dock Bike.new }
+    DEFAULT_CAPACITY.times { subject.dock Bike.new }
     expect { subject.dock Bike.new }.to raise_error("Capacity full")
+  end
+
+  it "accepts capacity different than 20" do
+    docking_station = DockingStation.new(30)
+    expect(docking_station.capacity).to eq(30)
   end
 end

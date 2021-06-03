@@ -1,8 +1,9 @@
 class DockingStation
   attr_reader :bike, :docker
 
-  def initialize
+  def initialize(capacity = 20)
     @docker = []
+    @capacity = capacity
   end
 
   def release_bike
@@ -13,10 +14,14 @@ class DockingStation
     full? ? (@docker << bike) : (raise "Capacity full")
   end
 
+  def capacity
+    @capacity
+  end
+
   private
 
   def full?
-    @docker.length < 20
+    @docker.length < @capacity
   end
 
   def empty?
